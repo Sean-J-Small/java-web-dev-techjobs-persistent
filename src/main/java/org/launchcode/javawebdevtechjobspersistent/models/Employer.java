@@ -19,12 +19,17 @@ public class Employer extends AbstractEntity {
     @JoinColumn
     private final List<Job> jobs = new ArrayList<>();
 
-    public Employer(@NotBlank(message = "Location is required!") String location) {
+    public Employer(@Size(min = 1, max = 200) @NotBlank(message = "Location is required!") String location) {
         this.location = location;
     }
 
     public Employer() {
 
+    }
+
+
+    public List<Job> getJobs() {
+        return jobs;
     }
 
     public String getLocation() {
